@@ -23,17 +23,17 @@ M569 P2 S0                  ; Drive 2 goes backwards
 ;M569 P3 S0                    ; Drive 3 goes backwards
 M569 P4 S0                   ; Drive 4 goes backwards
 
-M350 X128 Y128 Z128 E32:32 I0    ; Configure microstepping without interpolation
-M92 X639.36 Y641.12 Z3059.36 E830:830        ; Set steps per mm
-M566 X900 Y900 Z12 E120:120        ; Set maximum instantaneous speed changes (mm/min)
-M203 X6000 Y6000 Z200 E1200:1200    ; Set maximum speeds (mm/min)
-M201 X2000 Y2000 Z2500 E500:500        ; Set accelerations (mm/s^2)
-M906 X800 Y850 Z800 E850:875 I30   ; Set motor currents (mA) and motor idle factor in per cent
+M350 X128 Y128 Z16 E32:32 I0    ; Configure microstepping without interpolation
+M92 X639.36 Y641.12 Z382.42 E830:830        ; Set steps per mm
+M566 X650 Y650 Z12 E120:120        ; Set maximum instantaneous speed changes (mm/min)
+M203 X6000 Y6000 Z100 E1200:1200    ; Set maximum speeds (mm/min)
+M201 X2000 Y2000 Z1250 E500:500        ; Set accelerations (mm/s^2)
+M906 X800 Y850 Z875 E800:800 I30   ; Set motor currents (mA) and motor idle factor in per cent
 M84 S30                        ; Set idle timeout
 
 ; Axis Limits
 M208 X0 Y-40 Z-2 S1               ; Set axis minima
-M208 X250 Y210 Z200 S0         ; Set axis maxima
+M208 X250 Y200 Z200 S0         ; Set axis maxima
 M564 S0 H0
 
 
@@ -44,14 +44,14 @@ M574 X1 Y1  S0                 ; Set active high endstops
 
 ; Z-Probe
 M574 Z2 S2 ; Set endstops controlled by probe
-M558 P5 H25 F360 I1 T6000  ; Set Z probe type to modulated and the dive height + speeds
-G31 P500 X13 Y20 Z-0.5; Set Z probe trigger value, offset and trigger height
-M557 X15:220 Y20:195 S50 ; Define mesh grid
+M558 P5 H15 F500 I1 T6000 A2 S-1 ; Set Z probe type to modulated and the dive height + speeds
+G31 P500 X3.7 Y0 Z0; Set Z probe trigger value, offset and trigger height
+M557 X25:195 Y0:195 S70 ; Define mesh grid
 ;M376 H30
 
 ;M558 P1 X0 Y0 Z1 H5 F120 I1 T6000 ; Set Z probe type to unmodulated, the axes for which it is used and the dive height + speeds
 ;G31 P500 X0 Y0 Z2.5            ; Set Z probe trigger value, offset and trigger height
-;M557 X15:215 Y15:195 S40       ; Define mesh grid
+;M557 X15:215 Y15:195 S10       ; Define mesh grid
 
 ; Heaters
 M305 P0 T100000 B4138 C0 R4700 ; Set thermistor + ADC parameters for heater 0

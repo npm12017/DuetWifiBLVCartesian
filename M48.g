@@ -1,0 +1,12 @@
+M291 P"Probe will be tested 10 times and return mean and standard deviation. Ok or Cancel?" R"WARNING" S3 ; User must click OK or cancel.
+G28
+G30 P0 X90 Y90 Z-9999
+G30 P1 X90 Y90 Z-9999
+G30 P2 X90 Y90 Z-9999
+G30 P3 X90 Y90 Z-9999
+G30 P4 X90 Y90 Z-9999
+G30 P5 X90 Y90 Z-9999
+G30 P6 X90 Y90 Z-9999
+G30 P7 X90 Y90 Z-9999
+G30 P8 X90 Y90 Z-9999
+G30 P9 X90 Y90 Z-9999 S-1
