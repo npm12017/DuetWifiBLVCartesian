@@ -25,9 +25,10 @@ M569 P4 S0                   ; Drive 4 goes backwards
 
 M350 X128 Y128 Z16 E32:32 I0    ; Configure microstepping without interpolation
 M92 X639.36 Y641.12 Z382.42 E830:830        ; Set steps per mm
-M566 X650 Y650 Z12 E120:120        ; Set maximum instantaneous speed changes (mm/min)
-M203 X6000 Y6000 Z100 E1200:1200    ; Set maximum speeds (mm/min)
-M201 X2000 Y2000 Z1250 E500:500        ; Set accelerations (mm/s^2)
+
+M566 X900 Y900 Z12 E2000:2000 ;M566 X650 Y650 Z12 E2,000:2,000     ; Considered jerk in Marlin Set maximum instantaneous speed changes (mm/min)
+M203 X15000 Y15000 Z150 E3600:3600 ;M203 X6000 Y6000 Z100 E1200:3600    ; Set maximum speeds (mm/min)
+M201 X3000 Y3000 Z1250 E500:500 ;M201 X2000 Y2000 Z1250 E500:500        ; Set accelerations (mm/s^2)
 M906 X800 Y850 Z875 E800:800 I30   ; Set motor currents (mA) and motor idle factor in per cent
 M84 S30                        ; Set idle timeout
 
@@ -45,7 +46,7 @@ M574 X1 Y1  S0                 ; Set active high endstops
 ; Z-Probe
 M574 Z2 S2 ; Set endstops controlled by probe
 M558 P5 H15 F500 I1 T6000 A2 S-1 ; Set Z probe type to modulated and the dive height + speeds
-G31 P500 X3.7 Y0 Z0; Set Z probe trigger value, offset and trigger height
+G31 P500 X3.7 Y0 Z1; Set Z probe trigger value, offset and trigger height
 M557 X25:195 Y0:195 S70 ; Define mesh grid
 ;M376 H30
 
@@ -75,7 +76,9 @@ M563 P1 D1 H2                  ; Define tool ;1
 M572 D1 S0.1                   ; pressure advance
 G10 P1 X18 Y0 Z0               ; Set tool 1 axis offsets
 G10 P1 R0 S0                   ; Set initial tool 0 active and standby temperatures to 0C
+M307 H2 A984.9 C157.7 D8.4 S1.00 V24.4 B0 ; PID tuning
 
 
 
-; Custom settings are not configured
+
+M501; Custom settings are not configured

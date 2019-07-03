@@ -9,7 +9,7 @@ G1 X90 Y90 F6000 ; go to first probe point (Middle of Bed)
 ;G1 X15 Y193 F6000;
 G30 F500         ; home Z by probing the bed
 G1 Z10 F6000 S2   ; lift Z relative to current position
-G30 F50         ; home Z by probing the bed
+;G30 F50         ; home Z by probing the bed
 G90 ;absolute positioning 
 ;G92 Z=-0.5
 
